@@ -1,6 +1,7 @@
 """Iterate a directory"""
 import glob
 import os
+from pathlib import Path
 
 
 # Use os.walk()
@@ -12,5 +13,11 @@ for root, dirs, files in os.walk(directory):
 # Use glob.glob()
 directory = r"path\**\*.*"
 filelist = glob.glob(directory, recursive=True)
+for f in filelist:
+    print(f)
+
+# Use Path().rglob()
+directory = r"path"
+filelist = Path(directory).rglob("**\*.*")
 for f in filelist:
     print(f)
